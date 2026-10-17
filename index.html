@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How QA Copilot handles browser data, optional AI requests, local storage and privacy controls.">
+    <title>QA Copilot — Privacy Policy</title>
+    <style>
+      :root { color-scheme: light; font: 17px/1.65 system-ui, sans-serif; color: #162334; background: #f5f7fa; }
+      body { margin: 0; }
+      main { max-width: 760px; margin: 32px auto; padding: 32px; background: white; border: 1px solid #dbe3eb; border-radius: 16px; }
+      h1, h2 { line-height: 1.25; }
+      h1 { font-size: 2rem; margin: 0 0 12px; }
+      h2 { font-size: 1.25rem; margin-top: 32px; }
+      a { color: #075e91; overflow-wrap: anywhere; }
+      a:focus-visible { outline: 3px solid #075e91; outline-offset: 3px; }
+      li { margin: 8px 0; }
+      .meta { color: #46566a; }
+      @media (max-width: 600px) { main { margin: 0; padding: 24px 18px; border: 0; border-radius: 0; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>QA Copilot Privacy Policy</h1>
+        <p class="meta">Last updated: <time datetime="2026-10-17">17 October 2026</time><br>Applies to QA Copilot 4.5.2</p>
+        <p>QA Copilot is a Chrome extension by Ahmed Gamal Gaber. It helps testers inspect websites, run QA checks and prepare evidence. Core QA tools work without AI. QA Copilot does not operate a developer-run server for collecting your captures or analytics.</p>
+      </header>
+
+      <section aria-labelledby="data">
+        <h2 id="data">1. Data the extension handles</h2>
+        <p>When capture is active, QA Copilot processes API URLs, methods, status codes, timings, headers, permitted request and response bodies, and console output from the tested tab. These may contain personal information, credentials or other private website content.</p>
+        <p>User-requested tools can read page structure, form metadata and page-check results; fill forms with test data; capture screenshots or video; and prepare reports, API requests, saved tests and bug drafts. Screenshots and recordings can include anything visible in the selected capture area. Recording has no audio.</p>
+        <p>Tab URLs, titles and session information help keep results with the correct tested tab. The extension is not a general browsing-history or keystroke-tracking service.</p>
+      </section>
+
+      <section aria-labelledby="storage">
+        <h2 id="storage">2. Local storage and retention</h2>
+        <ul>
+          <li>Bounded captures use browser-local IndexedDB, with session metadata in Chrome session storage. Limits and session cleanup remove older data. You can also clear captures or reset the workspace.</li>
+          <li>Settings, saved APIs and saved performance-test definitions use Chrome local storage. They remain until you remove them or reset the workspace. Imported CSV rows, generated counter positions and live response-variable values are not saved with performance tests.</li>
+          <li>Jira notes and edited drafts use Chrome session storage. They survive panel reopening, but clear on browser restart, Clear draft or workspace reset.</li>
+          <li>AI chat and Design QA images/results stay in open-panel memory and clear when the panel closes. Downloaded screenshots, videos, reports and backups remain wherever you save them.</li>
+          <li>AI keys use Chrome session storage by default. Choosing Remember key stores that provider's key in Chrome local storage. QA Copilot does not encrypt saved keys itself or sync them through Chrome Sync. Disconnect removes the selected provider's key; workspace reset removes all provider keys.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="sharing">
+        <h2 id="sharing">3. When data leaves the browser</h2>
+        <p>Captures are not automatically uploaded to the developer. API replay and performance tests send your configured requests directly to the target servers when you run them. Those servers receive the request data and normal connection details. Test only systems you own or have permission to test.</p>
+        <p>AI is optional and uses your own key with Gemini (Google), OpenRouter or Groq. Connecting or refreshing models contacts the selected provider to validate access or retrieve model information. An AI action sends the question or task input needed for that action:</p>
+        <ul>
+          <li>General chat: your question and bounded recent conversation, without automatic page evidence.</li>
+          <li>QA chat and result help: your question and a bounded, redacted or reduced evidence summary relevant to the action.</li>
+          <li>Jira drafting: your bug notes, not automatic Jira submission.</li>
+          <li>Design comparison: the two reviewed images and focus notes.</li>
+          <li>Connected form fill: field types and validation rules, not existing field values or passwords. Password values are generated locally.</li>
+        </ul>
+        <p>The provider receives your API key for authentication. OpenRouter can route requests to the selected model's upstream provider. Provider retention, training, pricing and usage rules apply; QA Copilot cannot override them. Stopping a request does not undo data already received by a provider.</p>
+        <p>Review the policies of <a href="https://ai.google.dev/gemini-api/terms">Google Gemini</a>, <a href="https://openrouter.ai/privacy">OpenRouter</a> and <a href="https://groq.com/privacy-policy/">Groq</a> before sending confidential data.</p>
+        <p>Exports and clipboard copies remain under your control. Sharing or uploading them sends their contents to the destination you choose. The current Jira workflow prepares a draft for copying; it does not create or submit a Jira issue automatically.</p>
+      </section>
+
+      <section aria-labelledby="controls">
+        <h2 id="controls">4. Sensitive data and your controls</h2>
+        <p>Text redaction is enabled by default and masks common sensitive patterns. It is rule-based, can be disabled, and may miss private information. It does not automatically hide pixels in screenshots or videos. Review text and images before exporting or sending them to AI. Do not include secrets in questions or bug notes.</p>
+        <p>You can stop capture, cancel pending actions, disconnect AI, clear drafts and captures, remove saved items, or reset the workspace. Removing the extension clears its Chrome-managed local data. Resetting or uninstalling does not delete files you downloaded, data already shared, or records held by target websites or AI providers.</p>
+      </section>
+
+      <section aria-labelledby="use">
+        <h2 id="use">5. Purpose and limited use</h2>
+        <p>QA Copilot uses data to provide its user-facing website-testing features. It does not sell user data, use it for advertising, or use it to determine creditworthiness. Its use of information received from Chrome APIs follows the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+      </section>
+
+      <section aria-labelledby="website">
+        <h2 id="website">6. This policy website</h2>
+        <p>This page has no analytics scripts, forms, cookies or external fonts added by QA Copilot. When hosted on GitHub Pages, GitHub processes visitor connection information, including IP addresses, for hosting and security. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+      </section>
+
+      <section aria-labelledby="contact">
+        <h2 id="contact">7. Contact and updates</h2>
+        <p>Developer: Ahmed Gamal Gaber<br>Privacy questions: <a href="mailto:ahmedgamal621997@gmail.com">ahmedgamal621997@gmail.com</a></p>
+        <p>If you contact us, your email service and our email service process the message. Do not send API keys or private captures. This page will be updated when the extension's data handling changes.</p>
+      </section>
+    </main>
+  </body>
+</html>
