@@ -41,7 +41,7 @@
           <li>Settings, saved APIs and saved performance-test definitions use Chrome local storage. They remain until you remove them or reset the workspace. Imported CSV rows, generated counter positions and live response-variable values are not saved with performance tests.</li>
           <li>Jira notes and edited drafts use Chrome session storage. They survive panel reopening, but clear on browser restart, Clear draft or workspace reset.</li>
           <li>AI chat and Design QA images/results stay in open-panel memory and clear when the panel closes. Downloaded screenshots, videos, reports and backups remain wherever you save them.</li>
-          <li>AI keys use Chrome session storage by default. Choosing Remember key stores that provider's key in Chrome local storage. QA Copilot does not encrypt saved keys itself or sync them through Chrome Sync. Disconnect removes the selected provider's key; workspace reset removes all provider keys.</li>
+          <li>AI keys use trusted Chrome session storage only. There is no Remember key option and new keys are not saved to local or sync storage. Closing the panel keeps the session key; restarting Chrome or reloading, updating or disabling the extension clears it. Older remembered keys move into the current session before their persistent copies are removed. If migration cannot write to session storage, the old record is retained for retry and is not used as a local-key fallback. Disconnect removes the selected provider's key; workspace reset removes all provider keys. Provider and model preferences contain no key and may remain in local storage.</li>
         </ul>
       </section>
 
